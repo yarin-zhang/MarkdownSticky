@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     var zIndex = 0;
     var notes = JSON.parse(localStorage.getItem('notes')) || [];
     var nextNoteX = 0;
@@ -18,11 +18,12 @@ window.onload = function() {
 
         interact(noteElement).draggable({
             listeners: {
-                start: function(event) {
+                start: function (event) {
                     event.target.setAttribute('data-x', note.x);
                     event.target.setAttribute('data-y', note.y);
+                    event.target.style.zIndex = ++zIndex;
                 },
-                move: function(event) {
+                move: function (event) {
                     var target = event.target;
                     var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
                     var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -44,9 +45,9 @@ window.onload = function() {
 
         var deleteButton = document.getElementById('delete-button-template').cloneNode(true);
         deleteButton.style.display = 'block';
-        deleteButton.addEventListener('click', function() {
+        deleteButton.addEventListener('click', function () {
             notesContainer.removeChild(noteElement);
-            notes = notes.filter(function(n) { return n !== note; });
+            notes = notes.filter(function (n) { return n !== note; });
             localStorage.setItem('notes', JSON.stringify(notes));
         });
 
@@ -54,7 +55,7 @@ window.onload = function() {
         notesContainer.appendChild(noteElement);
     }
 
-    document.getElementById('add-note').addEventListener('click', function() {
+    document.getElementById('add-note').addEventListener('click', function () {
         var noteInput = document.getElementById('note-input');
         var noteContent = noteInput.value.trim();
 
@@ -64,16 +65,21 @@ window.onload = function() {
 
         // Check all possible positions for the new note
         var noteX = 0;
-        while (notes.some(function(existingNote) {
-            return Math.abs(existingNote.x - noteX) < 220;
+        var noteY = noteInput.getBoundingClientRect().bottom;
+        while (notes.some(function (existingNote) {
+            return Math.abs(existingNote.x - noteX) < 220 && Math.abs(existingNote.y - noteY) < 220;
         })) {
             noteX += 220;
+            if (noteX + 220 > window.innerWidth) {
+                noteX = 0;
+                noteY += 220; // Adjust this value based on the height of your notes
+            }
         }
 
         var note = {
             content: noteContent,
             x: noteX,
-            y: noteInput.getBoundingClientRect().bottom
+            y: noteY
         };
 
         notes.push(note);
@@ -84,28 +90,28 @@ window.onload = function() {
         noteInput.value = '';
     });
 
-    document.getElementById('delete-all-notes').addEventListener('click', function() {
+    document.getElementById('delete-all-notes').addEventListener('click', function () {
         localStorage.clear();
         location.reload();
     });
 
 
-    document.getElementById('export-notes').addEventListener('click', function() {
+    document.getElementById('export-notes').addEventListener('click', function () {
         var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(localStorage.getItem('notes'));
         var downloadAnchorNode = document.createElement('a');
-        downloadAnchorNode.setAttribute("href",     dataStr);
+        downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "notes.json");
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
     });
 
-    document.getElementById('import-notes').addEventListener('click', function() {
+    document.getElementById('import-notes').addEventListener('click', function () {
         var uploadInputNode = document.createElement('input');
         uploadInputNode.setAttribute("type", "file");
-        uploadInputNode.addEventListener('change', function(e) {
+        uploadInputNode.addEventListener('change', function (e) {
             var reader = new FileReader();
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 notes = JSON.parse(event.target.result);
                 localStorage.setItem('notes', JSON.stringify(notes));
                 location.reload();

@@ -14,16 +14,21 @@ body {
     box-sizing: border-box;
 }
 
+#input-container {
+    position: relative;
+}
+
 #note-input {
     width: 80%;
     padding: 10px;
+    font-size: 16px;
     margin-bottom: 10px;
     margin-left: 10%;
     margin-right: 10%;
     height: 100px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 0.15);
     resize: none;
 }
 
@@ -47,16 +52,18 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fdfd96;
-    box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 0.15);
     position: relative;
     resize: both;
     overflow: auto;
+    min-height: 100px;
 }
 
 button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding: 10px;
 }
 
 #add-note svg,
@@ -110,4 +117,42 @@ button {
 #copyright img {
     vertical-align: middle;
     margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+
+    #input-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    #notes-container {
+        padding-top: 150px;
+    }
+
+    #note-input {
+        height: 100%;
+    }
+
+    .note {
+        width: calc(50% - 20px);
+    }
+
+    #export-notes,
+    #import-notes,
+    #delete-all-notes {
+        top: auto;
+        bottom: 30px;
+    }
+
+    #import-notes {
+        right: 50px;
+    }
+
+    #delete-all-notes {
+        right: 90px;
+    }
 }

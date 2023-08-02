@@ -2,23 +2,27 @@
 <html>
 
 <head>
-    <title>Markdown Note Sticky</title>
+    <title>Markdown Sticky</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
     <div id="app">
-        <textarea id="note-input" placeholder="Enter your note in Markdown"></textarea>
-        <button id="add-note">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
-                viewBox="0 0 24 24">
-                <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M9 12h6"></path>
-                    <path d="M12 9v6"></path>
-                </g>
-            </svg>
-        </button>
+        <div id="input-container">
+            <textarea id="note-input" placeholder="Enter your note in Markdown"></textarea>
+            <button id="add-note">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"
+                    height="24" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9 12h6"></path>
+                        <path d="M12 9v6"></path>
+                    </g>
+                </svg>
+            </button>
+        </div>
         <button id="delete-all-notes">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
                 viewBox="0 0 24 24">
@@ -64,7 +68,9 @@
             </svg>
         </button>
         <div id="copyright">
-            <a href="https://github.com/yarin-zhang/MarkdownSticky" target="_blank"><img src="https://img.shields.io/badge/GitHub-MarkdownSticky-blue?logo=GitHub&logoColor=white" alt="GitHub"></a>
+            <a href="https://github.com/yarin-zhang/MarkdownSticky" target="_blank"><img
+                    src="https://img.shields.io/badge/GitHub-MarkdownSticky-blue?logo=GitHub&logoColor=white"
+                    alt="GitHub"></a>
             by <a href="https://github.com/yarin-zhang">YarinZ</a> | <a href="https://utgd.net">#UNTAG</a>
         </div>
     </div>
