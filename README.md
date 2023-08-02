@@ -6,6 +6,10 @@ Markdown Notes 是一个简单的单页面记事应用，允许用户以 Markdow
 
 <img width="1432" alt="image" src="https://github.com/yarin-zhang/MarkdownSticky/assets/58888890/82be41b9-edf8-44e1-a540-dee0c92b119c">
 
+## Demo
+
+[🔗 MarkdownSticky Demo](https://lab.utgd.net/MarkdownSticky/)
+
 ## Features (特性)
 
 - Write notes in Markdown (用 Markdown 编写便签)

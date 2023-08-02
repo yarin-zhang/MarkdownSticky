@@ -96,3 +96,18 @@ button {
     bottom: 10px;
     font-size: 10px;
 }
+
+#copyright a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+#copyright a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+#copyright img {
+    vertical-align: middle;
+    margin-left: 5px;
+}
