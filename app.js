@@ -3,6 +3,14 @@ window.onload = function () {
     var notes = JSON.parse(localStorage.getItem('notes')) || [];
     var nextNoteX = 0;
 
+    function disableScroll() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function enableScroll() {
+        document.body.style.overflow = '';
+    }
+
     function addNote(note) {
         var notesContainer = document.getElementById('notes-container');
 
@@ -19,6 +27,8 @@ window.onload = function () {
         interact(noteElement).draggable({
             listeners: {
                 start: function (event) {
+                    event.preventDefault();
+                    disableScroll();
                     event.target.setAttribute('data-x', note.x);
                     event.target.setAttribute('data-y', note.y);
                     event.target.style.zIndex = ++zIndex;
@@ -36,7 +46,10 @@ window.onload = function () {
                     note.x = x;
                     note.y = y;
                     localStorage.setItem('notes', JSON.stringify(notes));
-                }
+                },
+                end: function (event) {
+                    enableScroll();
+                },
             }
         }).resizable({
             edges: { left: true, right: true, bottom: true, top: true },
@@ -74,6 +87,11 @@ window.onload = function () {
                 noteX = 0;
                 noteY += 220; // Adjust this value based on the height of your notes
             }
+        }
+        // If it's going beyond the window's height, reset to the top position
+        if (noteY + 220 > window.innerHeight) {
+            noteX = 0;
+            noteY = 0;
         }
 
         var note = {

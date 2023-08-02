@@ -2,7 +2,7 @@
     "name": "Markdown Sticky",
     "short_name": "Sticky",
     "description": "A simple note-taking app using Markdown",
-    "start_url": "/",
+    "start_url": "https://lab.utgd.net/MarkdownSticky/",
     "display": "standalone",
     "background_color": "#f5f5f5",
     "theme_color": "#fdfd96",
