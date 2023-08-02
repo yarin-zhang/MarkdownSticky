@@ -1,14 +1,19 @@
 self.addEventListener('install', (event) => {
     event.waitUntil(
       caches.open('my-cache').then((cache) => {
-        return cache.addAll([
-          '/',
-          '/index.html',
-          '/style.css',
-          '/app.js',
-          '/icons/icon-192x192.png',
-          '/icons/icon-512x512.png',
-        ]);
+        try {
+          return cache.addAll([
+            'https://lab.utgd.net/MarkdownSticky/index.html',
+            'https://lab.utgd.net/MarkdownSticky/styles.css',
+            'https://lab.utgd.net/MarkdownSticky/app.js',
+            'https://lab.utgd.net/MarkdownSticky/icons/icon-192x192.png',
+            'https://lab.utgd.net/MarkdownSticky/icons/icon-512x512.png',
+            'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js'
+          ]);
+        }catch(e){
+          console.log(e);
+        }
       })
     );
   });
