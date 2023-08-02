@@ -47,6 +47,7 @@ body {
 }
 
 .note {
+    touch-action: none;
     width: 200px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -138,7 +139,6 @@ button {
     }
 
     .note {
-        touch-action: none;
         width: calc(50% - 20px);
     }
 
