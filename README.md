@@ -1,5 +1,12 @@
 # Markdown Sticky (Markdown 便利贴)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-blue.svg)](https://github.com/your-username/your-repo)
+[![PWA: Supported](https://img.shields.io/badge/PWA-Supported-green.svg)](https://github.com/your-username/your-repo)
+[![Language: JavaScript](https://img.shields.io/badge/Language-JavaScript-orange.svg)](https://github.com/your-username/your-repo)
+
+![icon-192x192](https://github.com/yarin-zhang/MarkdownSticky/assets/58888890/609a609c-3c3a-4b99-b973-a9319ad71a78)
+
 Markdown Sticky is a simple, single-page note-taking application that allows users to write notes in Markdown and store them in the browser's local storage. It's designed to be as simple as possible, with no user authentication required. You can download the repository from GitHub and start using it by opening the `index.html` file in your browser.
 
 Markdown Sticky 是一个简单的单页面记事应用，允许用户以 Markdown 格式编写便签，并将它们存储在浏览器的本地存储中。它的设计尽可能简单，无需用户认证。你可以从 GitHub 下载仓库，然后通过在浏览器中打开 `index.html` 文件来开始使用。
