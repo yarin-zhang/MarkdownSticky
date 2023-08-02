@@ -4,6 +4,8 @@ Markdown Notes is a simple, single-page note-taking application that allows user
 
 Markdown Notes 是一个简单的单页面记事应用，允许用户以 Markdown 格式编写便签，并将它们存储在浏览器的本地存储中。它的设计尽可能简单，无需用户认证。你可以从 GitHub 下载仓库，然后通过在浏览器中打开 `index.html` 文件来开始使用。
 
+<img width="1432" alt="image" src="https://github.com/yarin-zhang/MarkdownSticky/assets/58888890/82be41b9-edf8-44e1-a540-dee0c92b119c">
+
 ## Features (特性)
 
 - Write notes in Markdown (用 Markdown 编写便签)
