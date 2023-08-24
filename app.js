@@ -79,8 +79,8 @@ window.onload = function () {
                     transform: `translate(${x}px, ${y}px)`
                   })
                   Object.assign(event.target.dataset, { x, y });
-                    note.x = x;
-                    note.y = y;
+                  note.x = x;
+                  note.y = y;
                 },
                 end: function(event) {
                     enableScroll();
