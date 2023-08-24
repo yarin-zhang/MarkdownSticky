@@ -47,6 +47,7 @@ body {
 }
 
 .note {
+    box-sizing: border-box;
     touch-action: none;
     width: 200px;
     padding: 10px;
