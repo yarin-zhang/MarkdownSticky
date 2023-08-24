@@ -62,6 +62,11 @@ window.onload = function () {
         }).resizable({
             edges: { left: true, right: true, bottom: true, top: true },
             listeners: {
+                start: function (event) {
+                    event.preventDefault();
+                    disableScroll();
+                    event.target.style.zIndex = ++zIndex;
+                },
                 move: function(event) {
                   let { x, y } = event.target.dataset
         
@@ -73,8 +78,13 @@ window.onload = function () {
                     height: `${event.rect.height}px`,
                     transform: `translate(${x}px, ${y}px)`
                   })
-        
-                  Object.assign(event.target.dataset, { x, y })
+                  Object.assign(event.target.dataset, { x, y });
+                    note.x = x;
+                    note.y = y;
+                },
+                end: function(event) {
+                    enableScroll();
+                    localStorage.setItem('notes', JSON.stringify(notes));
                 }
             },
             margin: 10
